@@ -34,10 +34,10 @@ class AddressAutocomplete: NSObject, MKLocalSearchCompleterDelegate {
     @objc(getAddressDetails:withResolver:withRejecter:)
     func getAddressDetails(address: String!, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
-            if self.localSearch?.isSearching == true {
-                print("Canceling request")
-                self.localSearch?.cancel()
-            }
+            // if self.localSearch?.isSearching == true {
+            //     print("Canceling request")
+            //     self.localSearch?.cancel()
+            // }
             self.searchRequest = MKLocalSearch.Request()
             self.searchRequest?.naturalLanguageQuery = address
             self.localSearch = MKLocalSearch(request: self.searchRequest!);
